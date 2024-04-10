@@ -1,0 +1,32 @@
+mkdir JoseCar
+cd JoseCar
+git init
+
+echo "<h1>Hola, mundo!</h1>" > index.html
+git add index.html
+git commit -m "Archivo HTML inicial"
+
+git checkout -b Rama2
+
+echo "<p>Parrafo de prueba</p>" >> index.html
+
+git add index.html
+git commit -m "$(date) - Jose - Añadido un nuevo párrafo"
+
+echo "<p>Este es otro nuevo párrafo de prueba</p>" >> index.html
+
+git add index.html
+git commit -m "$(date) - Jose - Añadido otro nuevo párrafo"
+
+git remote add origin <https://github.com/JoseD96/Actividad2.git>
+
+git push origin master
+git push origin Rama2
+
+git checkout master
+git merge Rama2
+
+git push origin master
+
+git branch -d Rama2
+git push origin --delete Rama2
